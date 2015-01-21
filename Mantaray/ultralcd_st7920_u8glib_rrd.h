@@ -1,7 +1,7 @@
 #ifndef ULCDST7920_H
 #define ULCDST7920_H
 
-#include "Marlin.h"
+#include "Mantaray.h"
 
 #ifdef U8GLIB_ST7920
 
