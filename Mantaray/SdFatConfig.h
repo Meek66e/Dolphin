@@ -21,7 +21,7 @@
  * \file
  * \brief configuration definitions
  */
-#include "Marlin.h"
+#include "Mantaray.h"
 #ifdef SDSUPPORT
 
 #ifndef SdFatConfig_h
