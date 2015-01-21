@@ -1,3 +1,6 @@
+#ifndef Printrbot_Simple_1405_H
+#define Printrbot_Simple_1405_H
+
 /***************************************************************************************************************************
 This file contains all current predefined printer values for use in configuration.h
 
@@ -420,3 +423,5 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 //#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 70,0} // X,Y,Z Axis Extend and Retract angles
 
 #endif //Printrbot Simple 1405
+
+#endif //EOF
