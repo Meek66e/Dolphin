@@ -17,7 +17,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include <math.h>
-#include "Marlin.h"
+#include "Mantaray.h"
 
 #ifdef ENABLE_AUTO_BED_LEVELING
 #include "vector_3.h"
