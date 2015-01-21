@@ -1,0 +1,11 @@
+If you are making code changes please try to use the following formatting to help keep the code consistent.
+
+Headers
+/*****************************
+Header
+*****************************/
+
+Use // in front of comments
+
+Major change in code use (mini header)
+/***************Bed leveling***********/
