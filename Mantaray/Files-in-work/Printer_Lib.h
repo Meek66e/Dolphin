@@ -8,7 +8,10 @@ Note: these configurations are based on the unmodified configuration. If you hav
       manual setting input in configuration.h
 ****************************************************************************************************************************/
 
+#include Configuration.h
+
 /*************************************************Printrbot Simple 1405*****************************************************/
+#if Printer == 1
 
 //=====Custom Settings======//
 //#define CUSTOM_MENDEL_NAME "This Mendel"
@@ -415,3 +418,5 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 //#define NUM_SERVOS 3
 //#define SERVO_ENDSTOPS {-1, -1, 0} // Servo index for X, Y, Z. Disable with -1
 //#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 70,0} // X,Y,Z Axis Extend and Retract angles
+
+#endif //Printrbot Simple 1405
