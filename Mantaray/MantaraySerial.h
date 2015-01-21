@@ -19,9 +19,9 @@
   Modified 28 September 2010 by Mark Sproul
 */
 
-#ifndef MarlinSerial_h
-#define MarlinSerial_h
-#include "Marlin.h"
+#ifndef MantaraySerial_h
+#define MantaraySerial_h
+#include "Mantaray.h"
 
 #if !defined(SERIAL_PORT) 
 #define SERIAL_PORT 0
@@ -41,7 +41,7 @@
 #define SERIAL_REGNAME_INTERNAL(registerbase,number,suffix) registerbase##number##suffix
 #endif
 
-// Registers used by MarlinSerial class (these are expanded 
+// Registers used by MantaraySerial class (these are expanded 
 // depending on selected serial port
 #define M_UCSRxA SERIAL_REGNAME(UCSR,SERIAL_PORT,A) // defines M_UCSRxA to be UCSRnA where n is the serial port number
 #define M_UCSRxB SERIAL_REGNAME(UCSR,SERIAL_PORT,B) 
@@ -84,11 +84,11 @@ struct ring_buffer
   extern ring_buffer rx_buffer;
 #endif
 
-class MarlinSerial //: public Stream
+class MantaraySerial //: public Stream
 {
 
   public:
-    MarlinSerial();
+    MantaraySerial();
     void begin(long);
     void end();
     int peek(void);
@@ -178,7 +178,7 @@ class MarlinSerial //: public Stream
     void println(void);
 };
 
-extern MarlinSerial MSerial;
+extern MantaraySerial MSerial;
 #endif // !AT90USB
 
 // Use the UART for BT in AT90USB configurations
