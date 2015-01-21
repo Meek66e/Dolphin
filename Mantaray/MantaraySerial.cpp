@@ -20,8 +20,8 @@
   Modified 28 September 2010 by Mark Sproul
 */
 
-#include "Marlin.h"
-#include "MarlinSerial.h"
+#include "Mantaray.h"
+#include "MantaraySerial.h"
 
 #ifndef AT90USB
 // this next line disables the entire HardwareSerial.cpp, 
@@ -60,14 +60,14 @@ FORCE_INLINE void store_char(unsigned char c)
 
 // Constructors ////////////////////////////////////////////////////////////////
 
-MarlinSerial::MarlinSerial()
+MantaraySerial::MantaraySerial()
 {
 
 }
 
 // Public Methods //////////////////////////////////////////////////////////////
 
-void MarlinSerial::begin(long baud)
+void MantaraySerial::begin(long baud)
 {
   uint16_t baud_setting;
   bool useU2X = true;
@@ -98,7 +98,7 @@ void MarlinSerial::begin(long baud)
   sbi(M_UCSRxB, M_RXCIEx);
 }
 
-void MarlinSerial::end()
+void MantaraySerial::end()
 {
   cbi(M_UCSRxB, M_RXENx);
   cbi(M_UCSRxB, M_TXENx);
@@ -107,7 +107,7 @@ void MarlinSerial::end()
 
 
 
-int MarlinSerial::peek(void)
+int MantaraySerial::peek(void)
 {
   if (rx_buffer.head == rx_buffer.tail) {
     return -1;
@@ -116,7 +116,7 @@ int MarlinSerial::peek(void)
   }
 }
 
-int MarlinSerial::read(void)
+int MantaraySerial::read(void)
 {
   // if the head isn't ahead of the tail, we don't have any characters
   if (rx_buffer.head == rx_buffer.tail) {
@@ -128,7 +128,7 @@ int MarlinSerial::read(void)
   }
 }
 
-void MarlinSerial::flush()
+void MantaraySerial::flush()
 {
   // don't reverse this or there may be problems if the RX interrupt
   // occurs after reading the value of rx_buffer_head but before writing
@@ -150,27 +150,27 @@ void MarlinSerial::flush()
 
 
 
-void MarlinSerial::print(char c, int base)
+void MantaraySerial::print(char c, int base)
 {
   print((long) c, base);
 }
 
-void MarlinSerial::print(unsigned char b, int base)
+void MantaraySerial::print(unsigned char b, int base)
 {
   print((unsigned long) b, base);
 }
 
-void MarlinSerial::print(int n, int base)
+void MantaraySerial::print(int n, int base)
 {
   print((long) n, base);
 }
 
-void MarlinSerial::print(unsigned int n, int base)
+void MantaraySerial::print(unsigned int n, int base)
 {
   print((unsigned long) n, base);
 }
 
-void MarlinSerial::print(long n, int base)
+void MantaraySerial::print(long n, int base)
 {
   if (base == 0) {
     write(n);
@@ -185,72 +185,72 @@ void MarlinSerial::print(long n, int base)
   }
 }
 
-void MarlinSerial::print(unsigned long n, int base)
+void MantaraySerial::print(unsigned long n, int base)
 {
   if (base == 0) write(n);
   else printNumber(n, base);
 }
 
-void MarlinSerial::print(double n, int digits)
+void MantaraySerial::print(double n, int digits)
 {
   printFloat(n, digits);
 }
 
-void MarlinSerial::println(void)
+void MantaraySerial::println(void)
 {
   print('\r');
   print('\n');  
 }
 
-void MarlinSerial::println(const String &s)
+void MantaraySerial::println(const String &s)
 {
   print(s);
   println();
 }
 
-void MarlinSerial::println(const char c[])
+void MantaraySerial::println(const char c[])
 {
   print(c);
   println();
 }
 
-void MarlinSerial::println(char c, int base)
+void MantaraySerial::println(char c, int base)
 {
   print(c, base);
   println();
 }
 
-void MarlinSerial::println(unsigned char b, int base)
+void MantaraySerial::println(unsigned char b, int base)
 {
   print(b, base);
   println();
 }
 
-void MarlinSerial::println(int n, int base)
+void MantaraySerial::println(int n, int base)
 {
   print(n, base);
   println();
 }
 
-void MarlinSerial::println(unsigned int n, int base)
+void MantaraySerial::println(unsigned int n, int base)
 {
   print(n, base);
   println();
 }
 
-void MarlinSerial::println(long n, int base)
+void MantaraySerial::println(long n, int base)
 {
   print(n, base);
   println();
 }
 
-void MarlinSerial::println(unsigned long n, int base)
+void MantaraySerial::println(unsigned long n, int base)
 {
   print(n, base);
   println();
 }
 
-void MarlinSerial::println(double n, int digits)
+void MantaraySerial::println(double n, int digits)
 {
   print(n, digits);
   println();
@@ -258,7 +258,7 @@ void MarlinSerial::println(double n, int digits)
 
 // Private Methods /////////////////////////////////////////////////////////////
 
-void MarlinSerial::printNumber(unsigned long n, uint8_t base)
+void MantaraySerial::printNumber(unsigned long n, uint8_t base)
 {
   unsigned char buf[8 * sizeof(long)]; // Assumes 8-bit chars. 
   unsigned long i = 0;
@@ -279,7 +279,7 @@ void MarlinSerial::printNumber(unsigned long n, uint8_t base)
       'A' + buf[i - 1] - 10));
 }
 
-void MarlinSerial::printFloat(double number, uint8_t digits) 
+void MantaraySerial::printFloat(double number, uint8_t digits) 
 { 
   // Handle negative numbers
   if (number < 0.0)
@@ -316,7 +316,7 @@ void MarlinSerial::printFloat(double number, uint8_t digits)
 // Preinstantiate Objects //////////////////////////////////////////////////////
 
 
-MarlinSerial MSerial;
+MantaraySerial MSerial;
 
 #endif // whole file
 #endif // !AT90USB
