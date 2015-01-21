@@ -1,8 +1,8 @@
 // Tonokip RepRap firmware rewrite based off of Hydra-mmm firmware.
 // Licence: GPL
 
-#ifndef MARLIN_H
-#define MARLIN_H
+#ifndef MANTARAY_H
+#define MANTARAY_H
 
 #define  FORCE_INLINE __attribute__((always_inline)) inline
 
@@ -38,7 +38,7 @@
 #include "HardwareSerial.h"
 #endif
 
-#include "MarlinSerial.h"
+#include "MantaraySerial.h"
 
 #ifndef cbi
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
