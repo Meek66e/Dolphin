@@ -1,0 +1,12 @@
+If you are using a preconfigured bed then you can use one of the value sets below
+                                         or
+Use the default value and run "M303 E-1 S60 C8" to auto tune your bed 
+
+Input these values using "M304 Pxx.xx Ixx.xx Dxx.xx" (replace x's with values) and save with M500 
+(Note: EEPROM must be active to do this otherwise values must be placed in Configuration.h) 
+
+120v 250W silicone heater into 4mm borosilicate (MendelMax 1.5+, Printrbot)
+  DEFAULT_bedKp 10.00
+  DEFAULT_bedKi .023
+  DEFAULT_bedKd 305.4
+  
