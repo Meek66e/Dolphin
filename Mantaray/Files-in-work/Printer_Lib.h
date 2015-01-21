@@ -1,18 +1,28 @@
-/*******************************************************************************
+/***************************************************************************************************************************
 This file contains all current stored printer values for use in configuration.h
 
 Note: these configurations are based on the unmodified configuration. If you have 
       modified your printer or if your printer is a home build please use the manual
       manual setting input in configuration.h
-********************************************************************************/
+****************************************************************************************************************************/
 
-/********************************Printrbot Simple 1405**************************/
+/*************************************************Printrbot Simple 1405*****************************************************/
 
+//=====Custom Settings======//
+//#define CUSTOM_MENDEL_NAME "This Mendel"
+// #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
+
+/*****Connection Settings*****/
+#define SERIAL_PORT 0
+#define BAUDRATE 250000
+
+/*****General Configuration*****/
 // #define COREXY
 #define MOTHERBOARD 84
 #define EXTRUDERS 1
 #define POWER_SUPPLY 1
 
+/*****Temperature Settings*****/
 #define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
@@ -43,12 +53,26 @@ Note: these configurations are based on the unmodified configuration. If you hav
   #define PID_INTEGRAL_DRIVE_MAX 255  //limit for the integral term
   #define K1 0.95 //smoothing factor within the PID
   #define PID_dT ((16.0 * 8.0)/(F_CPU / 64.0 / 256.0)) //sampling period of the temperature routine
-  
+
+// If you are using a preconfigured hotend then you can use one of the value sets by uncommenting it
+// Ultimaker 
   #define  DEFAULT_Kp 22.2
   #define  DEFAULT_Ki 1.08
   #define  DEFAULT_Kd 114
+  
+// Makergear
+//    #define  DEFAULT_Kp 7.0
+//    #define  DEFAULT_Ki 0.1
+//    #define  DEFAULT_Kd 12
+
+// Mendel Parts V9 on 12V
+//    #define  DEFAULT_Kp 63.0
+//    #define  DEFAULT_Ki 2.25
+//    #define  DEFAULT_Kd 440
 #endif
 
+//#define PIDTEMPBED
+//#define BED_LIMIT_SWITCHING
 #define MAX_BED_POWER 255 // limits duty cycle to bed; 255=full current
 
 #ifdef PIDTEMPBED
@@ -57,6 +81,14 @@ Note: these configurations are based on the unmodified configuration. If you hav
     #define  DEFAULT_bedKp 10.00
     #define  DEFAULT_bedKi .023
     #define  DEFAULT_bedKd 305.4
+    
+//120v 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
+//from pidautotune
+//    #define  DEFAULT_bedKp 97.1
+//    #define  DEFAULT_bedKi 1.41
+//    #define  DEFAULT_bedKd 1675.16
+
+// FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif
 
 #define PREVENT_DANGEROUS_EXTRUDE
