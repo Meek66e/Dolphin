@@ -1,7 +1,7 @@
 #ifndef SPEED_LOOKUPTABLE_H
 #define SPEED_LOOKUPTABLE_H
 
-#include "Marlin.h"
+#include "Mantaray.h"
 
 #if F_CPU == 16000000
 
