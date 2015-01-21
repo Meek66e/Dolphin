@@ -1,8 +1,7 @@
 /**
  *dogm_lcd_implementation.h
  *
- *Graphics LCD implementation for 128x64 pixel LCDs by STB for ErikZalm/Marlin
- *Demonstrator: http://www.reprap.org/wiki/STB_Electronics
+ *Graphics LCD implementation for 128x64 pixel LCDs for Mantaray
  *License: http://opensource.org/licenses/BSD-3-Clause
  *
  *With the use of:
@@ -35,7 +34,7 @@
 
 #include <U8glib.h>
 #include "DOGMbitmaps.h"
-#include "dogm_font_data_marlin.h"
+#include "dogm_font_data_mantaray.h"
 #include "ultralcd.h"
 #include "ultralcd_st7920_u8glib_rrd.h"
 
@@ -61,7 +60,7 @@
 #define START_ROW				0
 
 
-/* Custom characters defined in font font_6x10_marlin.c */
+/* Custom characters defined in font font_6x10_mantaray.c */
 #define LCD_STR_BEDTEMP     "\xFE"
 #define LCD_STR_DEGREE      "\xB0"
 #define LCD_STR_THERMOMETER "\xFF"
@@ -102,7 +101,7 @@ static void lcd_implementation_init()
 	
 	u8g.firstPage();
 	do {
-		u8g.setFont(u8g_font_6x10_marlin);
+		u8g.setFont(u8g_font_6x10_mantaray);
 		u8g.setColorIndex(1);
 		u8g.drawBox (0, 0, u8g.getWidth(), u8g.getHeight());
 		u8g.setColorIndex(1);
@@ -126,11 +125,11 @@ static void lcd_implementation_init()
 			// RepRap init bmp
 			u8g.drawBitmapP(0,0,START_BMPBYTEWIDTH,START_BMPHEIGHT,start_bmp);
 			// Welcome message
-			u8g.setFont(u8g_font_6x10_marlin);
-			u8g.drawStr(62,10,"MARLIN"); 
+			u8g.setFont(u8g_font_6x10_mantaray);
+			u8g.drawStr(62,10,"MANTARAY"); 
 			u8g.setFont(u8g_font_5x8);
 			u8g.drawStr(62,19,"V1.0.0 RC2-mm");
-			u8g.setFont(u8g_font_6x10_marlin);
+			u8g.setFont(u8g_font_6x10_mantaray);
 			u8g.drawStr(62,28,"by ErikZalm");
 			u8g.drawStr(62,41,"DOGM128 LCD");
 			u8g.setFont(u8g_font_5x8);
@@ -323,7 +322,7 @@ static void lcd_implementation_status_screen()
  u8g.setColorIndex(1);	// black on white
  
  // Feedrate
- u8g.setFont(u8g_font_6x10_marlin);
+ u8g.setFont(u8g_font_6x10_mantaray);
  u8g.setPrintPos(3,49);
  u8g.print(LCD_STR_FEEDRATE[0]);
  u8g.setFont(FONT_STATUSMENU);
