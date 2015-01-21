@@ -5,25 +5,28 @@
 // Advanced settings can be found in Configuration_adv.h
 // BASIC SETTINGS: select your board type, temperature sensor type, axis scaling, and endstop configuration
 
-//===========================================================================
-//============================= DELTA Printer ===============================
-//===========================================================================
-// For a Delta printer rplace the configuration files wilth the files in the
-// example_configurations/delta directory.
-//
-
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
-#define STRING_CONFIG_H_AUTHOR "(Meek66e, Printrbot Simple 1405 firmware)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Meek66e, Mantaray)" // Who made the changes.
+
+// The following defines a predefined printer configuration stored in Printer_Lib.h
+// If your printer is not listed or was home built please leave this as 0 and enter your values in the MANUAL INPUT
+// section below
+// 0 = Not defined/ manual input
+// 1 = Printrbot Simple Maker 1405
+//#ifndef PRINTER
+  //#define PRINTER 0
+//#endif
+
+/***************************************************MANUAL INPUT***********************************************************/
 
 // SERIAL_PORT selects which serial port should be used for communication with the host.
 // This allows the connection of wireless adapters (for instance) to non-default port pins.
 // Serial port 0 is still used by the Arduino bootloader regardless of this setting.
 #define SERIAL_PORT 0
 
-// This determines the communication speed of the printer
 // This determines the communication speed of the printer
 #define BAUDRATE 250000
 
@@ -71,7 +74,7 @@
 // 21 = Elefu Ra Board (v3)
 
 #ifndef MOTHERBOARD
-#define MOTHERBOARD 84
+  #define MOTHERBOARD 84
 #endif
 
 // Define this to set a custom name for your generic Mendel,
