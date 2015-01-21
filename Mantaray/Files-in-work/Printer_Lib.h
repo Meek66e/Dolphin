@@ -1,5 +1,7 @@
 /***************************************************************************************************************************
-This file contains all current stored printer values for use in configuration.h
+This file contains all current predefined printer values for use in configuration.h
+
+Activate/Deactivate features by removing/adding // in front of the feature. Please do not delete features to deactivate them.
 
 Note: these configurations are based on the unmodified configuration. If you have 
       modified your printer or if your printer is a home build please use the manual
@@ -15,6 +17,7 @@ Note: these configurations are based on the unmodified configuration. If you hav
 /*****Connection Settings*****/
 #define SERIAL_PORT 0
 #define BAUDRATE 250000
+//#define BTENABLED     // Enable BT interface on AT90USB devices
 
 /*****General Configuration*****/
 // #define COREXY
