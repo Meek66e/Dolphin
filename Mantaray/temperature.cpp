@@ -1,6 +1,6 @@
 /*
   temperature.c - temperature control
-  Part of Marlin
+  Part of Mantaray
   
  Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
  
@@ -29,7 +29,7 @@
  */
 
 
-#include "Marlin.h"
+#include "Mantaray.h"
 #include "ultralcd.h"
 #include "temperature.h"
 #include "watchdog.h"
