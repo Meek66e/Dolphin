@@ -1,7 +1,7 @@
 #ifndef WATCHDOG_H
 #define WATCHDOG_H
 
-#include "Marlin.h"
+#include "Mantaray.h"
 
 #ifdef USE_WATCHDOG
   // intialise watch dog with a 1 sec interrupt time
