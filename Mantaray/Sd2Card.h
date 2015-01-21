@@ -18,7 +18,7 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-#include "Marlin.h"
+#include "Mantaray.h"
 #ifdef SDSUPPORT
 
 #ifndef Sd2Card_h
