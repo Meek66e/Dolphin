@@ -24,7 +24,7 @@
 #ifndef planner_h
 #define planner_h
 
-#include "Marlin.h"
+#include "Mantaray.h"
 
 #ifdef ENABLE_AUTO_BED_LEVELING
 #include "vector_3.h"
