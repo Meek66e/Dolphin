@@ -1,11 +1,22 @@
 If you are making code changes please try to use the following formatting to help keep the code consistent.
 
-Headers
-/*****************************
-Header
-*****************************/
+File Headers
+/*********************************************************************************************************************
+File header information
+**********************************************************************************************************************/
+
+
+Content header
+/***************Printrbot Settings***********/
+
+
+Mini header
+//=======Temp Settings======//
+
 
 Use // in front of comments
 
-Major change in code use (mini header)
-/***************Bed leveling***********/
+
+Indent 2 spaces for sub features
+ifdef THIS
+  do this
