@@ -8,7 +8,7 @@ Note: these configurations are based on the unmodified configuration. If you hav
       manual setting input in configuration.h
 ****************************************************************************************************************************/
 
-#include Configuration.h
+#include "../../Mantaray/Configuration.h"
 
 /*************************************************Printrbot Simple 1405*****************************************************/
 #if Printer == 1
