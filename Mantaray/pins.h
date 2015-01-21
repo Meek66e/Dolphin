@@ -1505,7 +1505,7 @@
 ****************************************************************************************/
 #if MOTHERBOARD == 8 || MOTHERBOARD == 81 || MOTHERBOARD == 84
 #define KNOWN_BOARD 1
-#define AT90USB 1286  // Disable MarlinSerial etc.
+#define AT90USB 1286  // Disable MantaraySerial etc.
 
 #ifndef __AVR_AT90USB1286__
 #error Oops!  Make sure you have 'Teensy++ 2.0' selected from the 'Tools -> Boards' menu.
@@ -1545,7 +1545,7 @@
 #define HEATER_2_PIN       47
 #define HEATER_BED_PIN     20  // Bed
 
-// If soft or fast PWM is off then use Teensyduino pin numbering, Marlin
+// If soft or fast PWM is off then use Teensyduino pin numbering, Mantaray
 // fastio pin numbering otherwise
 #ifdef FAN_SOFT_PWM || FAST_PWM_FAN
 	#define FAN_PIN        22  // Fan
@@ -1634,7 +1634,7 @@
  ****************************************************************************************/
 #if MOTHERBOARD == 82
 #define KNOWN_BOARD 1
-#define AT90USB 646  // Disable MarlinSerial etc.
+#define AT90USB 646  // Disable MantaraySerial etc.
 
 #ifndef __AVR_AT90USB646__
 #error Oops!  Make sure you have 'Brainwave' selected from the 'Tools -> Boards' menu.
@@ -1701,7 +1701,7 @@
 ****************************************************************************************/
 #if MOTHERBOARD == 83  // SAV Mk-I
 #define KNOWN_BOARD 1
-#define AT90USB 1286  // Disable MarlinSerial etc.
+#define AT90USB 1286  // Disable MantaraySerial etc.
 
 #ifndef __AVR_AT90USB1286__
 #error Oops!  Make sure you have 'Teensy++ 2.0' selected from the 'Tools -> Boards' menu.
@@ -1743,7 +1743,7 @@
 #define TEMP_2_PIN         -1
 
 #define SDPOWER            -1
-#define SDSS               20  // PB0 - 8 in marlin env.
+#define SDSS               20  // PB0 - 8 in mantaray env.
 #define LED_PIN            -1
 #define PS_ON_PIN          -1
 #define KILL_PIN           -1
