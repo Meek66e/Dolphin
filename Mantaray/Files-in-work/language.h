@@ -1,6 +1,8 @@
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
+#include "Configuration.h"
+
 #define LANGUAGE_CONCAT(M)       #M
 #define GENERATE_LANGUAGE_INCLUDE(M)  LANGUAGE_CONCAT(language_##M.h)
 
@@ -27,7 +29,7 @@
 
 #ifndef LANGUAGE_INCLUDE
   // pick your language from the list above
-  #define LANGUAGE_INCLUDE GENERATE_LANGUAGE_INCLUDE(en)
+  #define LANGUAGE_INCLUDE GENERATE_LANGUAGE_INCLUDE(LANGUAGE_SELECTION)
 #endif
 
 #define PROTOCOL_VERSION "1.0"
