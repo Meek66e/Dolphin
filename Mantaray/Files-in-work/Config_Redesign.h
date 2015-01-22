@@ -1,56 +1,92 @@
-#ifndef Printrbot_Simple_1405_H
-#define Printrbot_Simple_1405_H
+#ifndef CONFIGURATION_H
+#define CONFIGURATION_H
+/**********************************************************************************************************
+ This configuration file contains the basic settings.
+ Advanced settings can be found in Configuration_adv.h
+ BASIC SETTINGS: select your board type, temperature sensor type, axis scaling, and endstop configuration
+**********************************************************************************************************/
 
-/***************************************************************************************************************************
-This file contains all current predefined printer values for use in configuration.h
+// User-specified version info of this build to display in [Pronterface, etc] terminal window during
+// startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
+// build by the user have been successfully uploaded into firmware.
+#define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
+#define STRING_CONFIG_H_AUTHOR "(Meek66e, Mantaray)" // Who made the changes.
 
-Activate/Deactivate features by removing/adding // in front of the feature. Please do not delete features to deactivate them.
+// Define this to set a custom name for your generic Mendel,
+// #define CUSTOM_MENDEL_NAME "This Mendel"
 
-Note: these configurations are based on the unmodified configuration. If you have 
-      modified your printer or if your printer is a home build please use the manual
-      manual setting input in configuration.h
-****************************************************************************************************************************/
-
-#include "../../Mantaray/Configuration.h"
-
-/*************************************************Printrbot Simple 1405*****************************************************/
-#if Printer == 1
-
-//=====Custom Settings======//
-//#define CUSTOM_MENDEL_NAME "This Mendel"
+// Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
+// You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
 // #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
 
-/*****Connection Settings*****/
+/************************************************Connection Settings*************************************/
+// SERIAL_PORT selects which serial port should be used for communication with the host.
+// This allows the connection of wireless adapters (for instance) to non-default port pins.
+// Serial port 0 is still used by the Arduino bootloader regardless of this setting.
 #define SERIAL_PORT 0
+
+// This determines the communication speed of the printer
 #define BAUDRATE 250000
-//#define BTENABLED     // Enable BT interface on AT90USB devices
 
-/*****General Configuration*****/
-// #define COREXY
-#define MOTHERBOARD 84
-#define EXTRUDERS 1
-#define POWER_SUPPLY 1
+// This enables the serial port associated to the Bluetooth interface
+//#define BTENABLED              // Enable BT interface on AT90USB devices
 
-/*****Temperature Settings*****/
-#define TEMP_SENSOR_0 1
-#define TEMP_SENSOR_1 0
+/************************************************Printer Settings****************************************/
+
+// #define COREXY   // Uncomment the following line to enable CoreXY kinematics
+
+#ifndef MOTHERBOARD
+  #define MOTHERBOARD 84   //Refer to Boards.txt for a list of supported boards
+#endif
+
+#define EXTRUDERS 1    // This defines the number of extruders
+
+#define POWER_SUPPLY 1   // define which power supply you have. Please choose the one that matches your setup
+                         // 1 = ATX
+                         // 2 = X-Box 360 203Watts (the blue wire connected to PS_ON and the red wire to VCC)
+
+// Define this to have the electronics keep the powersupply off on startup. If you don't know what this is leave it.
+// #define PS_DEFAULT_OFF
+
+/************************************************Thermal Setting*****************************************/
+
+#define TEMP_SENSOR_0 1   //Refer to Thermosisters.txt for a list of supported Thermosisters
+#define TEMP_SENSOR_1 0   // 0 is not used, 1 is the default
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_BED 0
 
+//#define TEMP_SENSOR_1_AS_REDUNDANT            // This makes temp sensor 1 a redundant sensor for sensor 0.
+//#define MAX_REDUNDANT_TEMP_SENSOR_DIFF 10     // (degC) If the temperatures difference between these sensors 
+                                                // is to high the print will be aborted.
+
+// Actual temperature must be close to target for this long before M109 returns success
 #define TEMP_RESIDENCY_TIME 10  // (seconds)
 #define TEMP_HYSTERESIS 3       // (degC) range of +/- temperatures considered "close" to the target one
 #define TEMP_WINDOW     1       // (degC) Window around target to start the residency timer x degC early.
 
+// The minimal temperature defines the temperature below which the heater will not be enabled It is used
+// to check that the wiring to the thermistor is not broken.
+// Otherwise this would lead to the heater being powered on all the time.
 #define HEATER_0_MINTEMP 5
 #define HEATER_1_MINTEMP 5
 #define HEATER_2_MINTEMP 5
 #define BED_MINTEMP 5
 
+// When temperature exceeds max temp, your heater will be switched off.
+// This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
+// You should use MINTEMP for thermistor short/failure protection.
 #define HEATER_0_MAXTEMP 275
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define BED_MAXTEMP 150
 
+// If your bed has low resistance e.g. .6 ohm and throws the fuse you can duty cycle it to reduce the
+// average current. The value should be an integer and the heat bed will be turned on for 1 interval of
+// HEATER_BED_DUTY_CYCLE_DIVIDER intervals.
+//#define HEATER_BED_DUTY_CYCLE_DIVIDER 4
+
+// PID settings:
+// Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
 #define BANG_MAX 255 // limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX 255 // limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
@@ -63,49 +99,44 @@ Note: these configurations are based on the unmodified configuration. If you hav
   #define K1 0.95 //smoothing factor within the PID
   #define PID_dT ((16.0 * 8.0)/(F_CPU / 64.0 / 256.0)) //sampling period of the temperature routine
 
-// If you are using a preconfigured hotend then you can use one of the value sets by uncommenting it
-// Ultimaker 
-  #define  DEFAULT_Kp 22.2
-  #define  DEFAULT_Ki 1.08
-  #define  DEFAULT_Kd 114
-  
-// Makergear
-//    #define  DEFAULT_Kp 7.0
-//    #define  DEFAULT_Ki 0.1
-//    #define  DEFAULT_Kd 12
+    #define  DEFAULT_Kp 22.2
+    #define  DEFAULT_Ki 1.08   //Refer to Hotend_PID.txt for recommended values and instructions on how to auto calibrate
+    #define  DEFAULT_Kd 114
+    
+#endif // PIDTEMP
 
-// Mendel Parts V9 on 12V
-//    #define  DEFAULT_Kp 63.0
-//    #define  DEFAULT_Ki 2.25
-//    #define  DEFAULT_Kd 440
-#endif
-
+// Bed Temperature Control
+// Select PID or bang-bang with PIDTEMPBED. If bang-bang, BED_LIMIT_SWITCHING will enable hysteresis
+//
+// Uncomment this to enable PID on the bed. It uses the same frequency PWM as the extruder.
+// If your PID_dT above is the default, and correct for your hardware/configuration, that means 7.689Hz,
+// which is fine for driving a square wave into a resistive load and does not significantly impact you FET heating.
+// This also works fine on a Fotek SSR-10DA Solid State Relay into a 250W heater.
+// If your configuration is significantly different than this and you don't understand the issues involved, you probably
+// shouldn't use bed PID until someone else verifies your hardware works.
+// If this is enabled, find your own PID constants below.
 //#define PIDTEMPBED
 //#define BED_LIMIT_SWITCHING
-#define MAX_BED_POWER 255 // limits duty cycle to bed; 255=full current
+#define MAX_BED_POWER 255 // This sets the max power delivered to the bed; 255=full current
 
 #ifdef PIDTEMPBED
-//120v 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-//from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
     #define  DEFAULT_bedKp 10.00
-    #define  DEFAULT_bedKi .023
+    #define  DEFAULT_bedKi .023    // Refer to Bed_PID.txt for recommended values and instructions on how to auto calibrate
     #define  DEFAULT_bedKd 305.4
-    
-//120v 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-//from pidautotune
-//    #define  DEFAULT_bedKp 97.1
-//    #define  DEFAULT_bedKi 1.41
-//    #define  DEFAULT_bedKd 1675.16
+#endif // PIDTEMPBED
 
-// FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
-#endif
-
-#define PREVENT_DANGEROUS_EXTRUDE
-#define PREVENT_LENGTHY_EXTRUDE
+#define PREVENT_DANGEROUS_EXTRUDE   // This prevents dangerous Extruder moves, i.e. if the temperature is under the limit.
+#define PREVENT_LENGTHY_EXTRUDE     // If PREVENT_DANGEROUS_EXTRUDE is on, you can still disable very long bits of extrusion separately.
 #define EXTRUDE_MINTEMP 170
-#define EXTRUDE_MAXLENGTH (X_MAX_LENGTH+Y_MAX_LENGTH)
+#define EXTRUDE_MAXLENGTH (X_MAX_LENGTH+Y_MAX_LENGTH) //prevent extrusion of very large distances.
 
-#define ENDSTOPPULLUPS
+//===========================================================================
+//=============================Mechanical Settings===========================
+//===========================================================================
+
+// coarse Endstop Settings
+#define ENDSTOPPULLUPS // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
+
 #ifndef ENDSTOPPULLUPS
   // fine Enstop settings: Individual Pullups. will be ignored if ENDSTOPPULLUPS is defined
   // #define ENDSTOPPULLUP_XMAX
@@ -125,6 +156,7 @@ Note: these configurations are based on the unmodified configuration. If you hav
   #define ENDSTOPPULLUP_ZMIN
 #endif
 
+// The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
 const bool X_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 const bool Y_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 const bool Z_MIN_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
@@ -132,8 +164,9 @@ const bool X_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 const bool Y_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 //#define DISABLE_MAX_ENDSTOPS
-//#define DISABLE_MIN_ENDSTOPS// Disable max endstops for compatibility with endstop checking routine
+//#define DISABLE_MIN_ENDSTOPS
 
+// Disable max endstops for compatibility with endstop checking routine
 #if defined(COREXY) && !defined(DISABLE_MAX_ENDSTOPS)
   #define DISABLE_MAX_ENDSTOPS
 #endif
@@ -177,8 +210,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define X_MAX_LENGTH (base_max_pos[0] - base_min_pos[0])
 #define Y_MAX_LENGTH (base_max_pos[1] - base_min_pos[1])
 #define Z_MAX_LENGTH (base_max_pos[2] - base_min_pos[2])
+//============================= Bed Auto Leveling ===========================
 
-//Auto bed leveling
 #define ENABLE_AUTO_BED_LEVELING // Delete the comment to enable (remove // at the start of the line)
 
 #ifdef ENABLE_AUTO_BED_LEVELING
@@ -201,8 +234,13 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
   #define Z_RAISE_BEFORE_PROBING 5    //How much the extruder will be raised before traveling to the first probing point.
   #define Z_RAISE_BETWEEN_PROBINGS 5  //How much the extruder will be raised when traveling from between next probing points
-  
-  //  #define PROBE_SERVO_DEACTIVATION_DELAY 300
+
+
+  //If defined, the Probe servo will be turned on only during movement and then turned off to avoid jerk
+  //The value is the delay to turn the servo off after powered on - depends on the servo speed; 300ms is good value, but you can try lower it.
+  // You MUST HAVE the SERVO_ENDSTOPS defined to use here a value higher than zero otherwise your code will not compile.
+
+//  #define PROBE_SERVO_DEACTIVATION_DELAY 300
 
 
 //If you have enabled the Bed Auto Levelling and are using the same Z Probe for Z Homing,
@@ -221,7 +259,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
     #define Z_SAFE_HOMING_Y_POINT (Y_MAX_LENGTH/2)    // Y point for Z homing when homing all axis (G28)
 
   #endif
-  
+
   // with accurate bed leveling, the bed is sampled in a ACCURATE_BED_LEVELING_POINTSxACCURATE_BED_LEVELING_POINTS grid and least squares solution is calculated
   // Note: this feature occupies 10'206 byte
   //#define ACCURATE_BED_LEVELING
@@ -268,7 +306,19 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define DEFAULT_ZJERK                 0.4     // (mm/sec)
 #define DEFAULT_EJERK                 5.0    // (mm/sec)
 
+//===========================================================================
+//=============================Additional Features===========================
+//===========================================================================
+
+// EEPROM
+// the microcontroller can store settings in the EEPROM, e.g. max velocity...
+// M500 - stores paramters in EEPROM
+// M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
+// M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
+//define this to enable eeprom support
 #define EEPROM_SETTINGS
+//to disable EEPROM Serial responses and decrease program space by ~1700 byte: comment this out:
+// please keep turned on if you can.
 #define EEPROM_CHITCHAT
 //#define DISABLE_M503
 
@@ -296,6 +346,34 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 //#define ULTIMAKERCONTROLLER //as available from the ultimaker online store.
 #define ULTIPANEL  //the ultipanel as on thingiverse
+
+// The MaKr3d Makr-Panel with graphic controller and SD support
+// http://reprap.org/wiki/MaKr3d_MaKrPanel
+//#define MAKRPANEL
+
+// The RepRapDiscount Smart Controller (white PCB)
+// http://reprap.org/wiki/RepRapDiscount_Smart_Controller
+//#define REPRAP_DISCOUNT_SMART_CONTROLLER
+
+// The GADGETS3D G3D LCD/SD Controller (blue PCB)
+// http://reprap.org/wiki/RAMPS_1.3/1.4_GADGETS3D_Shield_with_Panel
+//#define G3D_PANEL
+
+// The RepRapDiscount FULL GRAPHIC Smart Controller (quadratic white PCB)
+// http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
+//
+// ==> REMEMBER TO INSTALL U8glib to your ARDUINO library folder: http://code.google.com/p/u8glib/wiki/u8glib
+//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+
+// The RepRapWorld REPRAPWORLD_KEYPAD v1.1
+// http://reprapworld.com/?products_details&products_id=202&cPath=1591_1626
+//#define REPRAPWORLD_KEYPAD
+//#define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0 // how much should be moved when a key is pressed, eg 10.0 means 10mm per click
+
+// The Elefu RA Board Control Panel
+// http://www.elefu.com/index.php?route=product/product&product_id=53
+// REMEMBER TO INSTALL LiquidCrystal_I2C.h in your ARUDINO library folder: https://github.com/kiyoshigawa/LiquidCrystal_I2C
+//#define RA_CONTROL_PANEL
 
 //automatic expansion
 #if defined (MAKRPANEL)
@@ -327,6 +405,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
  #define LCD_I2C_TYPE_PCA8574
  #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
 #endif
+
+//I2C PANELS
 
 //#define LCD_I2C_SAINSMART_YWROBOT
 #ifdef LCD_I2C_SAINSMART_YWROBOT
@@ -408,20 +488,61 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 # endif
 #endif
 
+// Increase the FAN pwm frequency. Removes the PWM noise but increases heating in the FET/Arduino
 //#define FAST_PWM_FAN
+
+// Temperature status leds that display the hotend and bet temperature.
+// If alle hotends and bed temperature and temperature setpoint are < 54C then the BLUE led is on.
+// Otherwise the RED led is on. There is 1C hysteresis.
 //#define TEMP_STAT_LEDS
+
+// Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
+// which is not ass annoying as with the hardware PWM. On the other hand, if this frequency
+// is too low, you should also increment SOFT_PWM_SCALE.
 //#define FAN_SOFT_PWM
+
+// Incrementing this by 1 will double the software PWM frequency,
+// affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
+// However, control resolution will be halved for each increment;
+// at zero value, there are 128 effective control positions.
 #define SOFT_PWM_SCALE 0
+
+// M240  Triggers a camera by emulating a Canon RC-1 Remote
+// Data from: http://www.doc-diy.net/photo/rc-1_hacked/
 // #define PHOTOGRAPH_PIN     23
+
+// SF send wrong arc g-codes when using Arc Point as fillet procedure
 //#define SF_ARC_FIX
+
+// Support for the BariCUDA Paste Extruder.
 //#define BARICUDA
+
+//define BlinkM/CyzRgb Support
 //#define BLINKM
 
-//R/C Servo Support
-//#define NUM_SERVOS 3
+/*********************************************************************\
+* R/C SERVO support
+* Sponsored by TrinityLabs, Reworked by codexmas
+**********************************************************************/
+
+// Number of servos
+//
+// If you select a configuration below, this will receive a default value and does not need to be set manually
+// set it manually if you have more servos than extruders and wish to manually control some
+// leaving it undefined or defining as 0 will disable the servo subsystem
+// If unsure, leave commented / disabled
+//
+//#define NUM_SERVOS 3 // Servo index starts with 0 for M280 command
+
+// Servo Endstops
+//
+// This allows for servo actuated endstops, primary usage is for the Z Axis to eliminate calibration or bed height changes.
+// Use M206 command to correct for switch height offset to actual nozzle height. Store that setting with M500.
+//
 //#define SERVO_ENDSTOPS {-1, -1, 0} // Servo index for X, Y, Z. Disable with -1
 //#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 70,0} // X,Y,Z Axis Extend and Retract angles
 
-#endif //Printrbot Simple 1405
+#include "Configuration_adv.h"
+#include "thermistortables.h"
 
-#endif //EOF
+#endif //__CONFIGURATION_H
