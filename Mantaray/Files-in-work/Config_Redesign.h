@@ -12,6 +12,22 @@
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
 #define STRING_CONFIG_H_AUTHOR "(Meek66e, Mantaray)" // Who made the changes.
 
+// en English
+// pl Polish
+// fr French
+// de German
+// es Spanish
+// ru Russian
+// it Italian
+// pt Portuguese
+// fi Finnish
+// an Aragonese
+// nl Dutch
+// ca Catalan
+// eu Basque-Euskera
+
+#define LANGUAGE_SELECTION en   // Select your language from the list above.
+
 // Define this to set a custom name for your generic Mendel,
 // #define CUSTOM_MENDEL_NAME "This Mendel"
 
