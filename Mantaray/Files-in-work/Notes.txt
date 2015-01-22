@@ -1,0 +1,6 @@
+1. In laungage.h make firmware URL the Mantaray site, check formatting on report listing Mantaray, & make a vaiable for software
+   version and add it to the report function.
+   
+2. Purge Delta bot items from all files.
+
+3. Rename project to one of the following: Swordfish, Firefish, Hawkfish, Jellyfish, Chromis, or Piranha.
