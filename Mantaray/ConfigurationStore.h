@@ -2,7 +2,6 @@
 #define CONFIG_STORE_H
 
 #include "Configuration.h"
-//#include "Printer_Lib/Printrbot_Simple_1405.h"
 
 void Config_ResetDefault();
 
