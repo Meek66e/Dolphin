@@ -12,54 +12,22 @@
 //   ==> ALWAYS TRY TO COMPILE MARLIN WITH/WITHOUT "ULTIPANEL" / "ULTRALCD" / "SDSUPPORT" #define IN "Configuration.h"
 //   ==> ALSO TRY ALL AVAILABLE LANGUAGE OPTIONS
 
-// Languages
-// en English
-// pl Polish
-// fr French
-// de German
-// es Spanish
-// ru Russian
-// it Italian
-// pt Portuguese
-// fi Finnish
-// an Aragonese
-// nl Dutch
-// ca Catalan
-// eu Basque-Euskera
-
-#ifndef LANGUAGE_INCLUDE
-  // pick your language from the list above
+//Selects language from Configuration.h
+#ifndef LANGUAGE_SELECTION
+  #define LANGUAGE_INCLUDE GENERATE_LANGUAGE_INCLUDE(en)
+#else
   #define LANGUAGE_INCLUDE GENERATE_LANGUAGE_INCLUDE(LANGUAGE_SELECTION)
 #endif
 
-#define PROTOCOL_VERSION "1.0"
 
-#if MB(ULTIMAKER)|| MB(ULTIMAKER_OLD)|| MB(ULTIMAIN_2)
-  #define MACHINE_NAME "Ultimaker"
-  #define FIRMWARE_URL "http://firmware.ultimaker.com"
-#elif MB(RUMBA)
-  #define MACHINE_NAME "Rumba"
-  #define FIRMWARE_URL "https://github.com/MarlinFirmware/Marlin"
-#elif MB(3DRAG)
-  #define MACHINE_NAME "3Drag"
-  #define FIRMWARE_URL "http://3dprint.elettronicain.it/"
-#elif MB(5DPRINT)
-  #define MACHINE_NAME "Makibox"
-  #define FIRMWARE_URL "https://github.com/MarlinFirmware/Marlin"
-#elif MB(SAV_MKI)
-  #define MACHINE_NAME "SAV MkI"
-  #define FIRMWARE_URL "https://github.com/fmalpartida/Marlin/tree/SAV-MkI-config"
+#ifndef CUSTOM_MENDEL_NAME
+  #define MACHINE_NAME "3D Printer"
 #else
-  #ifdef CUSTOM_MENDEL_NAME
-    #define MACHINE_NAME CUSTOM_MENDEL_NAME
-  #else
-    #define MACHINE_NAME "Mendel"
-  #endif
-
-// Default firmware set to Mendel
-  #define FIRMWARE_URL "https://github.com/MarlinFirmware/Marlin"
+  #define MACHINE_NAME CUSTOM_MENDEL_NAME
 #endif
 
+// Default firmware URL
+  #define FIRMWARE_URL "https://github.com/Meek66e/Mantaray"
 
 #ifndef MACHINE_UUID
    #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
@@ -75,7 +43,7 @@
   /* nothing here yet */
 
 // Common serial messages
-#define MSG_MARLIN "Marlin"
+#define MSG_MARLIN "Mantaray"
 
 // Serial Console Messages (do not translate those!)
 
