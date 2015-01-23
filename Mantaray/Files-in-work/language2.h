@@ -4,12 +4,12 @@
 #include "Configuration.h"
 
 #define LANGUAGE_CONCAT(M)       #M
-#define GENERATE_LANGUAGE_INCLUDE(M)  LANGUAGE_CONCAT(language_##M.h)
+#define GENERATE_LANGUAGE_INCLUDE(M)  LANGUAGE_CONCAT(language_lib/language_##M.h)
 
 
 // NOTE: IF YOU CHANGE LANGUAGE FILES OR MERGE A FILE WITH CHANGES
 //
-//   ==> ALWAYS TRY TO COMPILE MARLIN WITH/WITHOUT "ULTIPANEL" / "ULTRALCD" / "SDSUPPORT" #define IN "Configuration.h"
+//   ==> ALWAYS TRY TO COMPILE Mantaray WITH/WITHOUT "ULTIPANEL" / "ULTRALCD" / "SDSUPPORT" #define IN "Configuration.h"
 //   ==> ALSO TRY ALL AVAILABLE LANGUAGE OPTIONS
 
 //Selects language from Configuration.h
@@ -19,7 +19,7 @@
   #define LANGUAGE_INCLUDE GENERATE_LANGUAGE_INCLUDE(LANGUAGE_SELECTION)
 #endif
 
-
+//Selects printer name from Configuration.h
 #ifndef CUSTOM_MENDEL_NAME
   #define MACHINE_NAME "3D Printer"
 #else
