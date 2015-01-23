@@ -1,5 +1,5 @@
-#ifndef Printrbot_Simple_1405_H
-#define Printrbot_Simple_1405_H
+#ifndef PRINTER_CONFIG_PBS1405_H
+#define PRINTER_CONFIG_PBS1405_H
 
 /***************************************************************************************************************************
 This file contains all current predefined printer values for use in configuration.h
@@ -10,11 +10,7 @@ Note: these configurations are based on the unmodified configuration. If you hav
       modified your printer or if your printer is a home build please use the manual
       manual setting input in configuration.h
 ****************************************************************************************************************************/
-
-#include "../../Mantaray/Configuration.h"
-
 /*************************************************Printrbot Simple 1405*****************************************************/
-#if Printer == 1
 
 //=====Custom Settings======//
 //#define CUSTOM_MENDEL_NAME "This Mendel"
@@ -422,6 +418,4 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 //#define SERVO_ENDSTOPS {-1, -1, 0} // Servo index for X, Y, Z. Disable with -1
 //#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 70,0} // X,Y,Z Axis Extend and Retract angles
 
-#endif //Printrbot Simple 1405
-
-#endif //EOF
+#endif //PRINTER_CONFIG_PBS1405_H
