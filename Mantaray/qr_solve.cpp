@@ -1,6 +1,6 @@
 #include "qr_solve.h"
 
-#ifdef ACCURATE_BED_LEVELING
+#ifdef ADVANCED_BED_LEVELING
 
 #include <stdlib.h>
 #include <math.h>
