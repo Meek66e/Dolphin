@@ -1,7 +1,9 @@
-# Mantaray
-Mantaray 3D printer firmware is a splinter of Marlin V1.0 with additions from Marlin 1.0.2 Development and individual contibuters. It supports Cartesian, H-Bot, & CoreXY configurations.
+# Dolphin
+Dolphin 3D printer firmware is a splinter of Marlin V1.0 with additions from Marlin 1.0.2 Development and individual contibuters. It supports Cartesian, H-Bot, & CoreXY configurations.
 
 Delta & SCARA support has been removed to reduce code complexity and file size.
+
+Our design goal is to make a more user friendly 3D printer firmware
 
 ## Current Mission: Rename and sort files 
 
