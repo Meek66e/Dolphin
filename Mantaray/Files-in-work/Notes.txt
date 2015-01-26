@@ -1,8 +1,20 @@
 1. In laungage.h make firmware URL the Mantaray site, check formatting on report listing Mantaray, & make a vaiable for software
    version and add it to the report function.
    
-2. Purge Delta bot items from all files.
+DONE 2. Purge Delta bot items from all files.
 
 3. Rename project to one of the following: Swordfish, Firefish, Hawkfish, Jellyfish, Chromis, or Piranha.
 
 4. Create document that has deep explanations for all the variables in configuration.h or maybe place in wiki
+
+5. Create modified configuration.h file that is easier for the user to understand
+
+6. Create predefined printer lib 
+
+7. Create language lib
+
+8. Make sure all language lib files have the same messages
+
+9. Format all files so they match
+
+10. Merge changes from Marlin 1.0.2
