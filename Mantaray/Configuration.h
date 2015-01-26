@@ -327,11 +327,14 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 #ifdef ENABLE_AUTO_BED_LEVELING
 
+  //offset inboard from the max print area that will be probed
+  #define PROBING_OFFSET 5
+
   // these are the positions on the bed to do the probing
-  #define LEFT_PROBE_BED_POSITION 30
-  #define RIGHT_PROBE_BED_POSITION 95
-  #define BACK_PROBE_BED_POSITION 95
-  #define FRONT_PROBE_BED_POSITION 5
+  #define LEFT_PROBE_BED_POSITION ((X_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT + sqrt(pow(X_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT,2)) + (2 * PROBING_OFFSET))/2)
+  #define RIGHT_PROBE_BED_POSITION (X_MAX_LENGTH - (sqrt(pow(X_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT,2)) - X_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT + (2 * PROBING_OFFSET))/2)
+  #define BACK_PROBE_BED_POSITION (Y_MAX_LENGTH - (sqrt(pow(Y_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT,2)) - Y_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT + (2 * PROBING_OFFSET))/2)
+  #define FRONT_PROBE_BED_POSITION ((Y_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT + sqrt(pow(Y_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT,2)) + (2 * PROBING_OFFSET))/2)
 
   // these are the offsets to the prob relative to the extruder tip (Hotend - Probe)
   #define X_PROBE_OFFSET_FROM_EXTRUDER_DEFAULT 25
