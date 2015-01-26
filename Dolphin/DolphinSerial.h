@@ -19,9 +19,9 @@
   Modified 28 September 2010 by Mark Sproul
 */
 
-#ifndef MantaraySerial_h
-#define MantaraySerial_h
-#include "Mantaray.h"
+#ifndef DolphinSerial_h
+#define DolphinSerial_h
+#include "Dolphin.h"
 
 #if !defined(SERIAL_PORT) 
 #define SERIAL_PORT 0
@@ -41,7 +41,7 @@
 #define SERIAL_REGNAME_INTERNAL(registerbase,number,suffix) registerbase##number##suffix
 #endif
 
-// Registers used by MantaraySerial class (these are expanded 
+// Registers used by DolphinSerial class (these are expanded 
 // depending on selected serial port
 #define M_UCSRxA SERIAL_REGNAME(UCSR,SERIAL_PORT,A) // defines M_UCSRxA to be UCSRnA where n is the serial port number
 #define M_UCSRxB SERIAL_REGNAME(UCSR,SERIAL_PORT,B) 
@@ -84,11 +84,11 @@ struct ring_buffer
   extern ring_buffer rx_buffer;
 #endif
 
-class MantaraySerial //: public Stream
+class DolphinSerial //: public Stream
 {
 
   public:
-    MantaraySerial();
+    DolphinSerial();
     void begin(long);
     void end();
     int peek(void);
@@ -178,7 +178,7 @@ class MantaraySerial //: public Stream
     void println(void);
 };
 
-extern MantaraySerial MSerial;
+extern DolphinSerial MSerial;
 #endif // !AT90USB
 
 // Use the UART for BT in AT90USB configurations
