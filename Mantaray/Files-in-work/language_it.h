@@ -140,12 +140,4 @@
 
 #define MSG_RECTRACT                        "Ritrai"
 
-#ifdef DELTA_CALIBRATION_MENU
-    #define MSG_DELTA_CALIBRATE             "Calibraz. Delta"
-    #define MSG_DELTA_CALIBRATE_X           "Calibra X"
-    #define MSG_DELTA_CALIBRATE_Y           "Calibra Y"
-    #define MSG_DELTA_CALIBRATE_Z           "Calibra Z"
-    #define MSG_DELTA_CALIBRATE_CENTER      "Calibra Center"
-#endif // DELTA_CALIBRATION_MENU
-
 #endif // LANGUAGE_IT_H
