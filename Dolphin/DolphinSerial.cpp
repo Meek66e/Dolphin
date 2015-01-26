@@ -20,8 +20,8 @@
   Modified 28 September 2010 by Mark Sproul
 */
 
-#include "Mantaray.h"
-#include "MantaraySerial.h"
+#include "Dolphin.h"
+#include "DolphinSerial.h"
 
 #ifndef AT90USB
 // this next line disables the entire HardwareSerial.cpp, 
@@ -60,14 +60,14 @@ FORCE_INLINE void store_char(unsigned char c)
 
 // Constructors ////////////////////////////////////////////////////////////////
 
-MantaraySerial::MantaraySerial()
+DolphinSerial::DolphinSerial()
 {
 
 }
 
 // Public Methods //////////////////////////////////////////////////////////////
 
-void MantaraySerial::begin(long baud)
+void DolphinSerial::begin(long baud)
 {
   uint16_t baud_setting;
   bool useU2X = true;
@@ -98,7 +98,7 @@ void MantaraySerial::begin(long baud)
   sbi(M_UCSRxB, M_RXCIEx);
 }
 
-void MantaraySerial::end()
+void DolphinSerial::end()
 {
   cbi(M_UCSRxB, M_RXENx);
   cbi(M_UCSRxB, M_TXENx);
@@ -107,7 +107,7 @@ void MantaraySerial::end()
 
 
 
-int MantaraySerial::peek(void)
+int DolphinSerial::peek(void)
 {
   if (rx_buffer.head == rx_buffer.tail) {
     return -1;
@@ -116,7 +116,7 @@ int MantaraySerial::peek(void)
   }
 }
 
-int MantaraySerial::read(void)
+int DolphinSerial::read(void)
 {
   // if the head isn't ahead of the tail, we don't have any characters
   if (rx_buffer.head == rx_buffer.tail) {
@@ -128,7 +128,7 @@ int MantaraySerial::read(void)
   }
 }
 
-void MantaraySerial::flush()
+void DolphinSerial::flush()
 {
   // don't reverse this or there may be problems if the RX interrupt
   // occurs after reading the value of rx_buffer_head but before writing
@@ -150,27 +150,27 @@ void MantaraySerial::flush()
 
 
 
-void MantaraySerial::print(char c, int base)
+void DolphinSerial::print(char c, int base)
 {
   print((long) c, base);
 }
 
-void MantaraySerial::print(unsigned char b, int base)
+void DolphinSerial::print(unsigned char b, int base)
 {
   print((unsigned long) b, base);
 }
 
-void MantaraySerial::print(int n, int base)
+void DolphinSerial::print(int n, int base)
 {
   print((long) n, base);
 }
 
-void MantaraySerial::print(unsigned int n, int base)
+void DolphinSerial::print(unsigned int n, int base)
 {
   print((unsigned long) n, base);
 }
 
-void MantaraySerial::print(long n, int base)
+void DolphinSerial::print(long n, int base)
 {
   if (base == 0) {
     write(n);
@@ -185,72 +185,72 @@ void MantaraySerial::print(long n, int base)
   }
 }
 
-void MantaraySerial::print(unsigned long n, int base)
+void DolphinSerial::print(unsigned long n, int base)
 {
   if (base == 0) write(n);
   else printNumber(n, base);
 }
 
-void MantaraySerial::print(double n, int digits)
+void DolphinSerial::print(double n, int digits)
 {
   printFloat(n, digits);
 }
 
-void MantaraySerial::println(void)
+void DolphinSerial::println(void)
 {
   print('\r');
   print('\n');  
 }
 
-void MantaraySerial::println(const String &s)
+void DolphinSerial::println(const String &s)
 {
   print(s);
   println();
 }
 
-void MantaraySerial::println(const char c[])
+void DolphinSerial::println(const char c[])
 {
   print(c);
   println();
 }
 
-void MantaraySerial::println(char c, int base)
+void DolphinSerial::println(char c, int base)
 {
   print(c, base);
   println();
 }
 
-void MantaraySerial::println(unsigned char b, int base)
+void DolphinSerial::println(unsigned char b, int base)
 {
   print(b, base);
   println();
 }
 
-void MantaraySerial::println(int n, int base)
+void DolphinSerial::println(int n, int base)
 {
   print(n, base);
   println();
 }
 
-void MantaraySerial::println(unsigned int n, int base)
+void DolphinSerial::println(unsigned int n, int base)
 {
   print(n, base);
   println();
 }
 
-void MantaraySerial::println(long n, int base)
+void DolphinSerial::println(long n, int base)
 {
   print(n, base);
   println();
 }
 
-void MantaraySerial::println(unsigned long n, int base)
+void DolphinSerial::println(unsigned long n, int base)
 {
   print(n, base);
   println();
 }
 
-void MantaraySerial::println(double n, int digits)
+void DolphinSerial::println(double n, int digits)
 {
   print(n, digits);
   println();
@@ -258,7 +258,7 @@ void MantaraySerial::println(double n, int digits)
 
 // Private Methods /////////////////////////////////////////////////////////////
 
-void MantaraySerial::printNumber(unsigned long n, uint8_t base)
+void DolphinSerial::printNumber(unsigned long n, uint8_t base)
 {
   unsigned char buf[8 * sizeof(long)]; // Assumes 8-bit chars. 
   unsigned long i = 0;
@@ -279,7 +279,7 @@ void MantaraySerial::printNumber(unsigned long n, uint8_t base)
       'A' + buf[i - 1] - 10));
 }
 
-void MantaraySerial::printFloat(double number, uint8_t digits) 
+void DolphinSerial::printFloat(double number, uint8_t digits) 
 { 
   // Handle negative numbers
   if (number < 0.0)
@@ -316,7 +316,7 @@ void MantaraySerial::printFloat(double number, uint8_t digits)
 // Preinstantiate Objects //////////////////////////////////////////////////////
 
 
-MantaraySerial MSerial;
+DolphinSerial MSerial;
 
 #endif // whole file
 #endif // !AT90USB
