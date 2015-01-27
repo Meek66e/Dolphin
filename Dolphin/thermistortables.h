@@ -1,7 +1,7 @@
 #ifndef THERMISTORTABLES_H_
 #define THERMISTORTABLES_H_
 
-#include "Mantaray.h"
+#include "Dolphin.h"
 
 #define OVERSAMPLENR 16
 
