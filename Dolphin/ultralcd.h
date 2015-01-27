@@ -1,7 +1,7 @@
 #ifndef ULTRALCD_H
 #define ULTRALCD_H
 
-#include "Mantaray.h"
+#include "Dolphin.h"
 
 #ifdef ULTRA_LCD
 
