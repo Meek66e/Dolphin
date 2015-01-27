@@ -156,9 +156,9 @@ const u8g_fntpgm_uint8_t u8g_font_6x9[2300] U8G_SECTION(".progmem.u8g_font_6x9")
   4,8,8,6,1,254,128,128,224,144,144,224,128,128,4,8,
   8,6,1,254,80,0,144,144,144,112,144,96};
 
-// STB Mantaray
+// STB Dolphin
 /*
-  Fontname: u8g_font_6x10_mantaray
+  Fontname: u8g_font_6x10_dolphin
   Copyright: Public domain terminal emulator font.  Share and enjoy.
   Capital A Height: 7, '1' Height: 7
   Calculated Max Values w= 6 h=10 x= 2 y= 7 dx= 6 dy= 0 ascent= 8 len=10
@@ -169,7 +169,7 @@ const u8g_fntpgm_uint8_t u8g_font_6x9[2300] U8G_SECTION(".progmem.u8g_font_6x9")
   Max Font    ascent = 8 descent=-2
 */
 #include <utility/u8g.h>
-const u8g_fntpgm_uint8_t u8g_font_6x10_mantaray[2617] U8G_SECTION(".progmem.u8g_font_6x10_mantaray") = {
+const u8g_fntpgm_uint8_t u8g_font_6x10_dolphin[2617] U8G_SECTION(".progmem.u8g_font_6x10_dolphin") = {
   0,6,9,0,254,7,1,153,3,43,32,255,254,8,254,7,
   254,0,0,0,6,0,0,1,7,7,6,2,0,128,128,128,
   128,128,0,128,3,3,3,6,1,4,160,160,160,5,7,7,
