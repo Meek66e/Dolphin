@@ -17,7 +17,7 @@
  * along with the Arduino SdFat Library.  If not, see
  * <http://www.gnu.org/licenses/>.
  */
-#include "Mantaray.h"
+#include "Dolphin.h"
 #ifdef SDSUPPORT
 
 #ifndef SdFatUtil_h
@@ -26,8 +26,8 @@
  * \file
  * \brief Useful utility functions.
  */
-#include "Mantaray.h"
-#include "MantaraySerial.h"
+#include "Dolphin.h"
+#include "DolphinSerial.h"
 /** Store and print a string in flash memory.*/
 #define PgmPrint(x) SerialPrint_P(PSTR(x))
 /** Store and print a string in flash memory followed by a CR/LF.*/
