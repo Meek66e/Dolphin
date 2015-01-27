@@ -17,7 +17,7 @@
  * along with the Arduino SdFat Library.  If not, see
  * <http://www.gnu.org/licenses/>.
  */
-#include "Mantaray.h"
+#include "Dolphin.h"
 
 #ifdef SDSUPPORT
 #include "SdFatUtil.h"
