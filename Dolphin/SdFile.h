@@ -21,7 +21,7 @@
  * \file
  * \brief SdFile class
  */
-#include "Mantaray.h"
+#include "Dolphin.h"
 
 #ifdef SDSUPPORT
 #include "SdBaseFile.h"
