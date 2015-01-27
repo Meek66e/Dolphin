@@ -51,7 +51,7 @@
  IntersectionDistance[s1_, s2_, a_, d_] := (2 a d - s1^2 + s2^2)/(4 a)
  */
 
-#include "Mantaray.h"
+#include "Dolphin.h"
 #include "planner.h"
 #include "stepper.h"
 #include "temperature.h"
