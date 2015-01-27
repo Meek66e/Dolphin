@@ -3,7 +3,7 @@
    
 DONE 2. Purge Delta bot items from all files.
 
-3. Rename project to one of the following: Swordfish, Firefish, Jellyfish, Chromis, or Dolphin.
+DONE 3. Rename project to one of the following: Swordfish, Firefish, Jellyfish, Chromis, or Dolphin.
 
 4. Create document that has deep explanations for all the variables in configuration.h or maybe place in wiki
 
