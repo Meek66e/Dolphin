@@ -18,7 +18,7 @@
  * <http://www.gnu.org/licenses/>.
  */
 
-#include "Mantaray.h"
+#include "Dolphin.h"
 #ifdef SDSUPPORT
 
 #ifndef Sd2Card_h
