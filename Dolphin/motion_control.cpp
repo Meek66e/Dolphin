@@ -19,7 +19,7 @@
   along with Grbl.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "Mantaray.h"
+#include "Dolphin.h"
 #include "stepper.h"
 #include "planner.h"
 
