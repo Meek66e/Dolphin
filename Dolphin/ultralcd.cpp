@@ -1,7 +1,7 @@
 #include "temperature.h"
 #include "ultralcd.h"
 #ifdef ULTRA_LCD
-#include "Mantaray.h"
+#include "Dolphin.h"
 #include "language.h"
 #include "cardreader.h"
 #include "temperature.h"
@@ -1097,7 +1097,7 @@ void lcd_update()
         u8g.firstPage();
         do
         {
-            u8g.setFont(u8g_font_6x10_mantaray);
+            u8g.setFont(u8g_font_6x10_dolphin);
             u8g.setPrintPos(125,0);
             if (blink % 2) u8g.setColorIndex(1); else u8g.setColorIndex(0); // Set color for the alive dot
             u8g.drawPixel(127,63); // draw alive dot
