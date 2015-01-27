@@ -1,4 +1,4 @@
-#include "Mantaray.h"
+#include "Dolphin.h"
 
 #ifdef USE_WATCHDOG
 #include <avr/wdt.h>
