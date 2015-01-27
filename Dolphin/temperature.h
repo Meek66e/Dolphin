@@ -1,6 +1,6 @@
 /*
   temperature.h - temperature controller
-  Part of Mantaray
+  Part of Dolphin
 
   Copyright (c) 2011 Erik van der Zalm
 
@@ -21,7 +21,7 @@
 #ifndef temperature_h
 #define temperature_h 
 
-#include "Mantaray.h"
+#include "Dolphin.h"
 #include "planner.h"
 #ifdef PID_ADD_EXTRUSION_RATE
   #include "stepper.h"
