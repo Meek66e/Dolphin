@@ -11,6 +11,23 @@
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
 #define STRING_CONFIG_H_AUTHOR "(Meek66e, Dolphin)" // Who made the changes.
 
+// en = English
+// pl = Polish
+// fr = French
+// de = German
+// es = Spanish
+// ru = Russian
+// it = Italian
+// pt = Portuguese
+// fi = Finnish
+// an = Aragonese
+// nl = Dutch
+// ca = Catalan
+// eu = Basque-Euskera
+
+//Select your language from the list above
+//#define LANGUAGE_SELECTION en
+
 // The following defines a predefined printer configuration stored in Printer_Lib.h
 // If your printer is not listed or was home built please leave this as 0 and enter your values in the MANUAL INPUT
 // section below
