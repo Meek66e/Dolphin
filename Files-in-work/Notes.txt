@@ -9,7 +9,13 @@ DONE 3. Rename project to one of the following: Swordfish, Firefish, Jellyfish, 
 
 5. Create modified configuration.h file that is easier for the user to understand
 
-6. Create predefined printer lib 
+6. Create predefined printer lib
+
+   CC_MM_VVV
+   
+   CC  = 2 letter company abriviation
+   MM  = 2 letter model abriviation
+   VVV = 3 Number variation number
 
 7. Create language lib
 
