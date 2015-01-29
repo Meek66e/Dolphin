@@ -62,6 +62,7 @@
 // This enables the serial port associated to the Bluetooth interface
 //#define BTENABLED              
 
+
 //=======================================================Printer Settings=====================================================//
 
 // Uncomment the following line to enable CoreXY kinematics
@@ -201,6 +202,7 @@
     #define  DEFAULT_bedKd 305.4
 #endif
 
+
 //=======================================================Endstop Settings===================================================//
 
 // Comment this out for optical endstops. Leave active for mechanical endstops. If you have a combination refer to WIKI
@@ -221,20 +223,6 @@ const bool Z_MAX_ENDSTOP_INVERTING = false;
 #define Y_ENABLE_ON 0
 #define Z_ENABLE_ON 0
 #define E_ENABLE_ON 0 // For all extruders
-
-// Disables axis when it's not being used.
-#define DISABLE_X false
-#define DISABLE_Y false
-#define DISABLE_Z true
-#define DISABLE_E false // For all extruders
-
-// Invert movment direction
-#define INVERT_X_DIR true
-#define INVERT_Y_DIR true
-#define INVERT_Z_DIR true
-#define INVERT_E0_DIR false
-#define INVERT_E1_DIR false
-#define INVERT_E2_DIR false
 
 // Sets direction of endstops when homing; 1=MAX, -1=MIN
 #define X_HOME_DIR -1
@@ -261,6 +249,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false;
 #define MANUAL_Y_HOME_POS 0
 #define MANUAL_Z_HOME_POS 0
 
+
 //=====================================================Stepper Settings=====================================================//
 
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {80.0,80.0,2020,96}
@@ -274,6 +263,21 @@ const bool Z_MAX_ENDSTOP_INVERTING = false;
 #define DEFAULT_XYJERK                20.0    // (mm/sec)
 #define DEFAULT_ZJERK                 0.4     // (mm/sec)
 #define DEFAULT_EJERK                 5.0    // (mm/sec)
+
+// Disables axis when it's not being used.
+#define DISABLE_X false
+#define DISABLE_Y false
+#define DISABLE_Z true
+#define DISABLE_E false // For all extruders
+
+// Invert movment direction
+#define INVERT_X_DIR true
+#define INVERT_Y_DIR true
+#define INVERT_Z_DIR true
+#define INVERT_E0_DIR false
+#define INVERT_E1_DIR false
+#define INVERT_E2_DIR false
+
 
 //===================================================Optional Feature Settings===========================================//
 
@@ -297,6 +301,70 @@ const bool Z_MAX_ENDSTOP_INVERTING = false;
 // With advanced bed leveling, the bed is sampled in a ADVANCED_BED_LEVELING_POINTSxACCURATE_BED_LEVELING_POINTS grid and least squares solution is calculated
 // Note: this feature occupies 10'206 byte
 //#define ADVANCED_BED_LEVELING
+
+//Uncomment the lines below to save program flash space
+#define DISABLE_LCD_MOTION_MENU
+#define DISABLE_PREHEAT_MENU
+
+//LCD and SD support
+#define ULTRA_LCD  //general lcd support, also 16x2
+//#define DOGLCD  // Support for SPI LCD 128x64 (Controller ST7565R graphic Display Family)
+#define SDSUPPORT // Enable SD Card Support in Hardware Console
+//#define SDSLOW // Use slower SD transfer mode (not normally needed - uncomment if you're getting volume init error)
+//#define ENCODER_PULSES_PER_STEP 1 // Increase if you have a high resolution encoder
+//#define ENCODER_STEPS_PER_MENU_ITEM 5 // Set according to ENCODER_PULSES_PER_STEP or your liking
+//#define ULTIMAKERCONTROLLER //as available from the ultimaker online store.
+#define ULTIPANEL  //the ultipanel as on thingiverse
+//#define MAKRPANEL
+//#define REPRAP_DISCOUNT_SMART_CONTROLLER
+//#define G3D_PANEL
+//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+//#define REPRAPWORLD_KEYPAD
+//#define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0 // how much should be moved when a key is pressed, eg 10.0 means 10mm per click
+//#define RA_CONTROL_PANEL
+//#define LCD_I2C_SAINSMART_YWROBOT
+//#define LCD_I2C_PANELOLU2
+//#define LCD_I2C_VIKI
+//#define SR_LCD
+#define NEWPANEL
+
+// Increase the FAN pwm frequency. Removes the PWM noise but increases heating in the FET/Arduino
+//#define FAST_PWM_FAN
+
+// Temperature status leds that display the hotend and bet temperature.
+// If alle hotends and bed temperature and temperature setpoint are < 54C then the BLUE led is on.
+// Otherwise the RED led is on. There is 1C hysteresis.
+//#define TEMP_STAT_LEDS
+
+// Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
+// which is not ass annoying as with the hardware PWM. On the other hand, if this frequency
+// is too low, you should also increment SOFT_PWM_SCALE.
+//#define FAN_SOFT_PWM
+
+// Incrementing this by 1 will double the software PWM frequency,
+// affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
+// However, control resolution will be halved for each increment;
+// at zero value, there are 128 effective control positions.
+#define SOFT_PWM_SCALE 0
+
+// M240  Triggers a camera by emulating a Canon RC-1 Remote
+// Data from: http://www.doc-diy.net/photo/rc-1_hacked/
+//#define PHOTOGRAPH_PIN     23
+
+// SF send wrong arc g-codes when using Arc Point as fillet procedure
+//#define SF_ARC_FIX
+
+// Define BlinkM/CyzRgb Support
+//#define BLINKM
+
+// R/C servo support
+//#define NUM_SERVOS 3 // Servo index starts with 0 for M280 command
+
+// This allows for servo actuated endstops, primary usage is for the Z Axis to eliminate calibration or bed height changes.
+// Use M206 command to correct for switch height offset to actual nozzle height. Store that setting with M500.
+//#define SERVO_ENDSTOPS {-1, -1, 0} // Servo index for X, Y, Z. Disable with -1
+//#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 70,0} // X,Y,Z Axis Extend and Retract angles
+
 
 //======================================================Auto Defining Settings==============================================//
 // Note: These settings are auto defining and should not need to be changed unless problems occures
@@ -376,6 +444,116 @@ const bool Z_MAX_ENDSTOP_INVERTING = false;
 #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
 #define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
 
+// Preheat Constants
+#define PLA_PREHEAT_HOTEND_TEMP 180
+#define PLA_PREHEAT_HPB_TEMP 70
+#define PLA_PREHEAT_FAN_SPEED 255   // Insert Value between 0 and 255
+
+#define ABS_PREHEAT_HOTEND_TEMP 240
+#define ABS_PREHEAT_HPB_TEMP 100
+#define ABS_PREHEAT_FAN_SPEED 255   // Insert Value between 0 and 255
+
+//automatic expansion
+#if defined (MAKRPANEL)
+ #define DOGLCD
+ #define SDSUPPORT
+ #define ULTIPANEL
+ #define NEWPANEL
+ #define DEFAULT_LCD_CONTRAST 17
+#endif
+
+#if defined (REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
+ #define DOGLCD
+ #define U8GLIB_ST7920
+ #define REPRAP_DISCOUNT_SMART_CONTROLLER
+#endif
+
+#if defined(ULTIMAKERCONTROLLER) || defined(REPRAP_DISCOUNT_SMART_CONTROLLER) || defined(G3D_PANEL)
+ #define ULTIPANEL
+ #define NEWPANEL
+#endif
+
+#if defined(REPRAPWORLD_KEYPAD)
+  #define NEWPANEL
+  #define ULTIPANEL
+#endif
+#if defined(RA_CONTROL_PANEL)
+ #define ULTIPANEL
+ #define NEWPANEL
+ #define LCD_I2C_TYPE_PCA8574
+ #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
+#endif
+
+#ifdef LCD_I2C_SAINSMART_YWROBOT
+  // This uses the LiquidCrystal_I2C library ( https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home )
+  // Make sure it is placed in the Arduino libraries directory.
+  #define LCD_I2C_TYPE_PCF8575
+  #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
+  #define NEWPANEL
+  #define ULTIPANEL
+#endif
+
+#ifdef LCD_I2C_PANELOLU2
+  // This uses the LiquidTWI2 library v1.2.3 or later ( https://github.com/lincomatic/LiquidTWI2 )
+  // Make sure the LiquidTWI2 directory is placed in the Arduino or Sketchbook libraries subdirectory.
+  // (v1.2.3 no longer requires you to define PANELOLU in the LiquidTWI2.h library header file)
+  // Note: The PANELOLU2 encoder click input can either be directly connected to a pin
+  //       (if BTN_ENC defined to != -1) or read through I2C (when BTN_ENC == -1).
+  #define LCD_I2C_TYPE_MCP23017
+  #define LCD_I2C_ADDRESS 0x20 // I2C Address of the port expander
+  #define LCD_USE_I2C_BUZZER //comment out to disable buzzer on LCD
+  #define NEWPANEL
+  #define ULTIPANEL
+#endif
+
+#ifdef LCD_I2C_VIKI
+  // This uses the LiquidTWI2 library v1.2.3 or later ( https://github.com/lincomatic/LiquidTWI2 )
+  // Make sure the LiquidTWI2 directory is placed in the Arduino or Sketchbook libraries subdirectory.
+  // Note: The pause/stop/resume LCD button pin should be connected to the Arduino
+  //       BTN_ENC pin (or set BTN_ENC to -1 if not used)
+  #define LCD_I2C_TYPE_MCP23017
+  #define LCD_I2C_ADDRESS 0x20 // I2C Address of the port expander
+  #define LCD_USE_I2C_BUZZER //comment out to disable buzzer on LCD (requires LiquidTWI2 v1.2.3 or later)
+  #define NEWPANEL
+  #define ULTIPANEL
+#endif
+
+#ifdef SR_LCD
+   #define SR_LCD_2W_NL    // Non latching 2 wire shiftregister
+   //#define NEWPANEL
+#endif
+
+#ifdef ULTIPANEL
+//  #define NEWPANEL  //enable this if you have a click-encoder panel
+  #define SDSUPPORT
+  #define ULTRA_LCD
+  #ifdef DOGLCD // Change number of lines to match the DOG graphic display
+    #define LCD_WIDTH 20
+    #define LCD_HEIGHT 5
+  #else
+    #define LCD_WIDTH 20
+    #define LCD_HEIGHT 4
+  #endif
+#else //no panel but just lcd
+  #ifdef ULTRA_LCD
+  #ifdef DOGLCD // Change number of lines to match the 128x64 graphics display
+    #define LCD_WIDTH 20
+    #define LCD_HEIGHT 5
+  #else
+    #define LCD_WIDTH 16
+    #define LCD_HEIGHT 2
+  #endif
+  #endif
+#endif
+
+// default LCD contrast for dogm-like LCD displays
+#ifdef DOGLCD
+# ifndef DEFAULT_LCD_CONTRAST
+#  define DEFAULT_LCD_CONTRAST 32
+# endif
+#endif
+
+
 //========================================================Safety Settings===================================================//
 // Note: These settings prevent your printer from performing unsafe actions and should not be disabled under normal operation.
 
@@ -408,4 +586,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false;
 // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
 //#define PID_OPENLOOP 1 
 
+#include "Configuration_adv.h"
+#include "thermistortables.h"
 
+#endif //__CONFIGURATION_H
