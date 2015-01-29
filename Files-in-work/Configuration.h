@@ -49,7 +49,7 @@
 //============================================================================================================================//
 //=======================================================Manual Settings======================================================//
 //============================================================================================================================//
-// These settings are for those who want to set up their printer manualy or have a modified printer
+#if PRINTER == 0
 
 //======================================================Connection Setting====================================================//
 
@@ -585,6 +585,15 @@ const bool Z_MAX_ENDSTOP_INVERTING = false;
   
 // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
 //#define PID_OPENLOOP 1 
+
+#else
+  #define PRINTER_CONCAT(M)       #M
+  #define GENERATE_PRINTER_INCLUDE(M)  PRINTER_CONCAT(printer_lib/##M.h)
+  
+  #define PRINTER_INCLUDE GENERATE_PRINTER_INCLUDE(PRINTER)
+  
+  #include PRINTER_INCLUDE
+#endif
 
 #include "Configuration_adv.h"
 #include "thermistortables.h"
