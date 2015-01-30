@@ -5,3 +5,4 @@ The following files will need changes to implament this change
 - Tempurature.cpp
 
 Also Dolphin_main.cpp will need a custom M code to view these stats.
+- ConfigurationStore.cpp to add print function
