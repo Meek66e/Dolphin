@@ -1,0 +1,7 @@
+The following files will need changes to implament this change
+- Dolphin_main.cpp
+- Planner.cpp
+- Stepper.cpp
+- Tempurature.cpp
+
+Also Dolphin_main.cpp will need a custom M code to view these stats.
