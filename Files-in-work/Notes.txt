@@ -28,3 +28,5 @@ DONE 3. Rename project to one of the following: Swordfish, Firefish, Jellyfish, 
 11. add Life stats tracking to program (Dolphin_Main.cpp) 
     add M code to view life cycle in window
     See ultimake 2 fork for reference
+
+12. add Bowden set up to config.h
