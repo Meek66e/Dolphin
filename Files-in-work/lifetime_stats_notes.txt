@@ -4,5 +4,5 @@ The following files will need changes to implament this change
 - Stepper.cpp
 - Tempurature.cpp
 
-Also Dolphin_main.cpp will need a custom M code to view these stats.
+Also Dolphin_main.cpp will need a custom M code to view these stats. (M504 maybe)
 - ConfigurationStore.cpp to add print function
